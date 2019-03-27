@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1BF0A9F5224BDA55000D7C33 /* Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BF0A9F4224BDA55000D7C33 /* Launch Screen.png */; };
 		2561886B22498FD20083B18B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2561886A22498FD20083B18B /* Default-568h@2x.png */; };
 		D518D8F01C7A21B200CF7E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D518D8EE1C7A21B200CF7E56 /* Main.storyboard */; };
 		D518D8F51C7A21B200CF7E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D518D8F31C7A21B200CF7E56 /* LaunchScreen.storyboard */; };
@@ -42,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1BF0A9F4224BDA55000D7C33 /* Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Screen.png"; sourceTree = "<group>"; };
 		2561886A22498FD20083B18B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D518D8E71C7A21B200CF7E56 /* Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D518D8EF1C7A21B200CF7E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 		D518D8E91C7A21B200CF7E56 /* Dash */ = {
 			isa = PBXGroup;
 			children = (
+				1BF0A9F4224BDA55000D7C33 /* Launch Screen.png */,
 				D5DC5B851FBB7907003B9B56 /* README.md */,
 				D5C9712B1C9CDC5900E9CAFF /* AppDelegate.swift */,
 				D50017CA1C891DD80087FE2E /* View Controllers */,
@@ -270,6 +273,7 @@
 				D5DC5B861FBB7907003B9B56 /* README.md in Resources */,
 				2561886B22498FD20083B18B /* Default-568h@2x.png in Resources */,
 				D518D8F01C7A21B200CF7E56 /* Main.storyboard in Resources */,
+				1BF0A9F5224BDA55000D7C33 /* Launch Screen.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
