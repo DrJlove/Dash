@@ -4,15 +4,17 @@
         <attribute name="color" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="preview" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="images" optional="YES" toMany="YES" deletionRule="Cascade" ordered="YES" destinationEntity="Image" inverseName="board" inverseEntity="Image" syncable="YES"/>
     </entity>
     <entity name="Image" representedClassName="Image" syncable="YES" codeGenerationType="class">
         <attribute name="bottomText" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="shape" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="source" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="topText" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="board" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Board" inverseName="images" inverseEntity="Board" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Board" positionX="-54" positionY="-9" width="128" height="90"/>
-        <element name="Image" positionX="-36" positionY="27" width="128" height="105"/>
+        <element name="Board" positionX="-54" positionY="-9" width="128" height="105"/>
+        <element name="Image" positionX="-36" positionY="27" width="128" height="120"/>
     </elements>
 </model>
