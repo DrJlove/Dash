@@ -1,6 +1,6 @@
 ## DashMe
 
-### *Tech Used*
+### *Tech Used
 * Xcode 7.3.1+ (through 9.0)
 * Swift 2.2 (through 4.0)
 * iOS 9.2 (through 11.0)
