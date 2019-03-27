@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1BF0A9F5224BDA55000D7C33 /* Launch Screen.png in Resources */ = {isa = PBXBuildFile; fileRef = 1BF0A9F4224BDA55000D7C33 /* Launch Screen.png */; };
+		1BF0AA5D224BFA37000D7C33 /* Dash.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1BF0AA5B224BFA37000D7C33 /* Dash.xcdatamodeld */; };
 		2561886B22498FD20083B18B /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2561886A22498FD20083B18B /* Default-568h@2x.png */; };
 		D518D8F01C7A21B200CF7E56 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D518D8EE1C7A21B200CF7E56 /* Main.storyboard */; };
 		D518D8F51C7A21B200CF7E56 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D518D8F31C7A21B200CF7E56 /* LaunchScreen.storyboard */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		1BF0A9F4224BDA55000D7C33 /* Launch Screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Launch Screen.png"; sourceTree = "<group>"; };
+		1BF0AA5C224BFA37000D7C33 /* Dash.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dash.xcdatamodel; sourceTree = "<group>"; };
 		2561886A22498FD20083B18B /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		D518D8E71C7A21B200CF7E56 /* Dash.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dash.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D518D8EF1C7A21B200CF7E56 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -138,6 +140,7 @@
 				D518D8F31C7A21B200CF7E56 /* LaunchScreen.storyboard */,
 				D5C971371C9CDCF100E9CAFF /* Assets.xcassets */,
 				D5C971391C9CDD1000E9CAFF /* Info.plist */,
+				1BF0AA5B224BFA37000D7C33 /* Dash.xcdatamodeld */,
 			);
 			path = Dash;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				D5EADB7D1CA83EF100ED9A38 /* CollectionViewFlowLayout.swift in Sources */,
 				D5C9713B1C9CE04300E9CAFF /* AppDelegate.swift in Sources */,
 				D5C971311C9CDC9800E9CAFF /* CollectionViewController.swift in Sources */,
+				1BF0AA5D224BFA37000D7C33 /* Dash.xcdatamodeld in Sources */,
 				D5C971341C9CDC9800E9CAFF /* TableViewController.swift in Sources */,
 				D5C971361C9CDCB100E9CAFF /* Dash.swift in Sources */,
 				D5C971331C9CDC9800E9CAFF /* EditorViewController.swift in Sources */,
@@ -592,6 +596,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1BF0AA5B224BFA37000D7C33 /* Dash.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1BF0AA5C224BFA37000D7C33 /* Dash.xcdatamodel */,
+			);
+			currentVersion = 1BF0AA5C224BFA37000D7C33 /* Dash.xcdatamodel */;
+			path = Dash.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = D518D8DF1C7A21B200CF7E56 /* Project object */;
 }
