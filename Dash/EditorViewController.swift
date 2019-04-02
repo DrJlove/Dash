@@ -93,7 +93,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 		
 		// define controller's source type based on method for image selection
 		// (implicitly unwrapping since we'll return if no valid source type)
-		var sourceType: UIImagePickerControllerSourceType!
+		var sourceType: UIImagePickerController.SourceType!
 		
 		switch sender {
 			
@@ -117,7 +117,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 		
 		DashdImage = generateDashdImage()
 		
-		let activityViewController = UIActivityViewController(activityItems: [DashdImage], applicationActivities: nil)
+        let activityViewController = UIActivityViewController(activityItems: [DashdImage!], applicationActivities: nil)
 		
 		/*
 		 * fixes crash on iPads, error message:
@@ -131,7 +131,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 		activityViewController.popoverPresentationController?.barButtonItem = sender
 		
 		activityViewController.completionWithItemsHandler = {
-			(activityType: UIActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) -> Void in
+			(activityType: UIActivity.ActivityType?, completed: Bool, returnedItems: [Any]?, activityError: Error?) -> Void in
 		
 			if completed {
 				self.saveDash()
@@ -146,9 +146,12 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 	
 	// MARK: - Image Picker Delegate Methods
 	
-	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+// Local variable inserted by Swift 4.2 migrator.
+let info = convertFromUIImagePickerControllerInfoKeyDictionary(info)
+
 		
-		DashImageView.image = (info[UIImagePickerControllerOriginalImage] as! UIImage)
+		DashImageView.image = (info[convertFromUIImagePickerControllerInfoKey(UIImagePickerController.InfoKey.originalImage)] as! UIImage)
 		
 		dismiss(animated: true, completion: nil)
 	}
@@ -186,13 +189,13 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 		// watch for the keyboard to show
 		NotificationCenter.default.addObserver(self,
 			selector: #selector(EditorViewController.keyboardWillShow(_:)),
-			name: NSNotification.Name.UIKeyboardWillShow,
+			name: UIResponder.keyboardWillShowNotification,
 			object: nil)
 		
 		// watch for the keyboard to hide
 		NotificationCenter.default.addObserver(self,
 			selector: #selector(EditorViewController.keyboardWillHide(_:)),
-			name: NSNotification.Name.UIKeyboardWillHide,
+			name: UIResponder.keyboardWillHideNotification,
 			object: nil)
 	}
 	
@@ -200,12 +203,12 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 		
 		// no longer need to watch for keyboard to show
 		NotificationCenter.default.removeObserver(self,
-			name: NSNotification.Name.UIKeyboardWillShow,
+			name: UIResponder.keyboardWillShowNotification,
 			object: nil)
 
 		// no longer need to watch for keyboard to hide
 		NotificationCenter.default.removeObserver(self,
-			name: NSNotification.Name.UIKeyboardWillHide,
+			name: UIResponder.keyboardWillHideNotification,
 			object: nil)
 	}
 	
@@ -237,15 +240,15 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 		paragraphStyleToCenterText.alignment = NSTextAlignment.center
 		
 		let DashTextAttributes: [String: Any] = [
-			NSAttributedStringKey.strokeColor.rawValue : UIColor.black,
-			NSAttributedStringKey.foregroundColor.rawValue : UIColor.white,
-			NSAttributedStringKey.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
-			NSAttributedStringKey.strokeWidth.rawValue : -3.0,
+			NSAttributedString.Key.strokeColor.rawValue : UIColor.black,
+			NSAttributedString.Key.foregroundColor.rawValue : UIColor.white,
+			NSAttributedString.Key.font.rawValue : UIFont(name: "HelveticaNeue-CondensedBlack", size: 40)!,
+			NSAttributedString.Key.strokeWidth.rawValue : -3.0,
 			
-			NSAttributedStringKey.paragraphStyle.rawValue : paragraphStyleToCenterText,
+			NSAttributedString.Key.paragraphStyle.rawValue : paragraphStyleToCenterText,
 		]
 		
-		textField.defaultTextAttributes = DashTextAttributes
+		textField.defaultTextAttributes = convertToNSAttributedStringKeyDictionary(DashTextAttributes)
 		textField.adjustsFontSizeToFitWidth = true
 	}
 	
@@ -260,7 +263,7 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 		
 		let userInfo = notification.userInfo!
 		
-		let keyboardSize = userInfo[UIKeyboardFrameEndUserInfoKey] as! NSValue
+		let keyboardSize = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as! NSValue
 		let keyboardSizeAsFloat = keyboardSize.cgRectValue.height
 		
 		return keyboardSizeAsFloat
@@ -301,3 +304,18 @@ class EditorViewController: UIViewController, UIImagePickerControllerDelegate, U
 	
 }
 
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKeyDictionary(_ input: [UIImagePickerController.InfoKey: Any]) -> [String: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map {key, value in (key.rawValue, value)})
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromUIImagePickerControllerInfoKey(_ input: UIImagePickerController.InfoKey) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToNSAttributedStringKeyDictionary(_ input: [String: Any]) -> [NSAttributedString.Key: Any] {
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
+}
